@@ -5,7 +5,8 @@ import 'package:domino/features/auth/presentation/widgets/sign_in/wlabel_divider
 import 'package:domino/features/auth/presentation/widgets/sign_up/wsignup_footer.dart';
 import 'package:domino/features/auth/presentation/widgets/sign_up/wsignup_form.dart';
 import 'package:domino/utils/constants/sizes.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/texts/auth_text.dart';
+import 'package:domino/utils/constants/texts/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
@@ -27,7 +28,7 @@ class SignUpScreen extends StatelessWidget {
                 WAuthHeader(
                   textTheme: Theme.of(context).textTheme,
                   headTitle: TTexts.getStarted,
-                  headSubTititle: TTexts.signupSubTitle,
+                  headSubTititle: TAuthText.signupSubTitle,
                 ),
                 SizedBox(height: TSizes.spaceBtwItems),
 
@@ -36,7 +37,7 @@ class SignUpScreen extends StatelessWidget {
                 SizedBox(height: TSizes.spaceBtwItems),
 
                 // Divider
-                WLabeledDivider(label: TTexts.orSignUpWith),
+                WLabeledDivider(label: TAuthText.orSignUpWith),
                 SizedBox(height: TSizes.spaceBtwItems),
 
                 // Footer: Row [Google, Facebook]

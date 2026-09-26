@@ -1,6 +1,6 @@
 import 'package:domino/features/auth/presentation/pages/sign_in.dart';
-import 'package:domino/utils/constants/image/image_strings.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/images/image_strings.dart';
+import 'package:domino/utils/constants/texts/auth_text.dart';
 import 'package:domino/utils/helpers/popups/full_screen_loaders.dart';
 import 'package:domino/utils/helpers/popups/loaders.dart';
 import 'package:domino/utils/helpers/timer/count_down_timer.dart';
@@ -28,8 +28,8 @@ class ForgetPwController extends GetxController {
   Future<void> sendResetLink() async {
     if (!isEmailValid.value) {
       TLoaders.errorSnackBar(
-        title: TTexts.invalidCode,
-        message: TTexts.enterValidEMail,
+        title: TAuthText.invalidCode,
+        message: TAuthText.enterValidEMail,
       );
       return;
     }
@@ -44,16 +44,16 @@ class ForgetPwController extends GetxController {
       TFullScreenLoader.stopLoading();
 
       TLoaders.successSnackBar(
-        title: TTexts.checkYourEmail,
-        message: TTexts.resetLinkSentMessage,
+        title: TAuthText.checkYourEmail,
+        message: TAuthText.resetLinkSentMessage,
       );
 
       resendTimer.start(_cooldownSeconds);
     } catch (e) {
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(
-        title: TTexts.somethingWentWrong,
-        message: TTexts.pleaseTryAgainLater,
+        title: TAuthText.somethingWentWrong,
+        message: TAuthText.pleaseTryAgainLater,
       );
     }
   }

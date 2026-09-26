@@ -5,7 +5,7 @@ import 'package:domino/shared/widgets/components/texts/product_price_text.dart';
 import 'package:domino/shared/widgets/components/texts/product_title_text.dart';
 import 'package:domino/shared/widgets/images/rounded_image.dart';
 import 'package:domino/utils/constants/colors.dart';
-import 'package:domino/utils/constants/image/icon_string.dart';
+import 'package:domino/utils/constants/images/icon_string.dart';
 import 'package:domino/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';

@@ -4,9 +4,10 @@ import 'package:domino/shared/widgets/images/image_shadow.dart';
 import 'package:domino/features/auth/presentation/controllers/onboarding_controllers.dart';
 import 'package:domino/shared/widgets/components/default/wbrand_text.dart';
 import 'package:domino/utils/constants/colors.dart';
-import 'package:domino/utils/constants/image/image_strings.dart';
+import 'package:domino/utils/constants/images/image_strings.dart';
 import 'package:domino/utils/constants/sizes.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/texts/onboarding_text.dart';
+import 'package:domino/utils/constants/texts/text_strings.dart';
 import 'package:domino/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -49,7 +50,7 @@ class OnboardingScreen extends StatelessWidget {
                 const SizedBox(height: TSizes.spaceBtwSections),
 
                 Text(
-                  TTexts.onBoardingHeader,
+                  TOnboardingText.onBoardingHeader,
                   style: textTheme.headlineSmall?.copyWith(
                     height: 1.4,
                     fontWeight: FontWeight.w800,
@@ -57,7 +58,10 @@ class OnboardingScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: TSizes.spaceBtwItems),
 
-                Text(TTexts.onBoardingSubTitle, style: textTheme.bodyMedium),
+                Text(
+                  TOnboardingText.onBoardingSubTitle,
+                  style: textTheme.bodyMedium,
+                ),
                 const Spacer(),
 
                 /// Get Started button

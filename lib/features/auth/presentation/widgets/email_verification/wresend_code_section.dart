@@ -1,6 +1,6 @@
 import 'package:domino/utils/constants/colors.dart';
 import 'package:domino/utils/constants/sizes.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/texts/auth_text.dart';
 import 'package:flutter/material.dart';
 
 class WResendCodeSection extends StatelessWidget {
@@ -21,7 +21,7 @@ class WResendCodeSection extends StatelessWidget {
 
     return Column(
       children: [
-        Text(TTexts.didNotReceiveCode),
+        Text(TAuthText.didNotReceiveCode),
         SizedBox(height: TSizes.xs),
 
         if (isTimerRunning)
@@ -30,7 +30,7 @@ class WResendCodeSection extends StatelessWidget {
             text: TextSpan(
               style: theme.bodyMedium,
               children: [
-                TextSpan(text: '${TTexts.resendCodeIn} '),
+                TextSpan(text: '${TAuthText.resendCodeIn} '),
                 TextSpan(
                   text: codeTimer,
                   style: theme.labelMedium?.copyWith(
@@ -51,7 +51,7 @@ class WResendCodeSection extends StatelessWidget {
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
             child: Text(
-              TTexts.resendCode,
+              TAuthText.resendCode,
               style: theme.labelMedium?.copyWith(
                 fontWeight: FontWeight.w600,
                 color: TColors.primary,

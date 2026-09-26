@@ -5,7 +5,8 @@ import 'package:domino/features/auth/presentation/widgets/sign_in/wsignin_footer
 import 'package:domino/features/auth/presentation/widgets/sign_in/wsignin_form.dart';
 import 'package:domino/shared/widgets/components/default/wauth_header.dart';
 import 'package:domino/utils/constants/sizes.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/texts/auth_text.dart';
+import 'package:domino/utils/constants/texts/onboarding_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,8 +29,8 @@ class SignInScreen extends StatelessWidget {
 
                 // Header (Logo, Title, Subtitle)
                 WAuthHeader(
-                  headTitle: TTexts.welcome,
-                  headSubTititle: TTexts.pleaseEnterYourDetails,
+                  headTitle: TAuthText.welcome,
+                  headSubTititle: TOnboardingText.pleaseEnterYourDetails,
                 ),
                 SizedBox(height: TSizes.spaceBtwItems),
 
@@ -38,7 +39,7 @@ class SignInScreen extends StatelessWidget {
                 SizedBox(height: TSizes.spaceBtwSections),
 
                 // Divider
-                WLabeledDivider(label: TTexts.orSignInWith),
+                WLabeledDivider(label: TAuthText.orSignInWith),
                 SizedBox(height: TSizes.spaceBtwSections),
 
                 // Footer (Or Sign In With, Social Media Buttons [Google, Facebook])

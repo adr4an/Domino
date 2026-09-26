@@ -7,9 +7,10 @@ import 'package:domino/shared/widgets/images/wdisplay_image.dart';
 import 'package:domino/features/auth/presentation/controllers/forget_pw_controller.dart';
 import 'package:domino/features/auth/presentation/widgets/auth_options.dart/resend_timer.dart';
 import 'package:domino/features/auth/presentation/widgets/sign_in/wauth_footer.dart';
-import 'package:domino/utils/constants/image/icon_string.dart';
+import 'package:domino/utils/constants/images/icon_string.dart';
 import 'package:domino/utils/constants/sizes.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/texts/auth_text.dart';
+import 'package:domino/utils/constants/texts/text_strings.dart';
 import 'package:domino/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -41,15 +42,15 @@ class ForgetPasswordScreen extends StatelessWidget {
 
                 // Header
                 WAuthHeader(
-                  headTitle: TTexts.forgetPasswordTitle,
-                  headSubTititle: TTexts.forgetPasswordDescription,
+                  headTitle: TAuthText.forgetPasswordTitle,
+                  headSubTititle: TAuthText.forgetPasswordDescription,
                 ),
                 SizedBox(height: TSizes.spaceBtwSections),
 
                 // Email Field
                 Obx(
                   () => WtextField(
-                    label: TTexts.email,
+                    label: TAuthText.email,
                     controller: controller.emailController,
                     showClearButton: controller.hasEmail.value,
                   ),
@@ -63,13 +64,13 @@ class ForgetPasswordScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(top: 5, bottom: 5),
                           child: WResendTimerText(
-                            label: TTexts.resendCodeIn,
+                            label: TAuthText.resendCodeIn,
                             timerText: controller.resendTimer.secondsLeft.value,
                           ),
                         ),
 
                       WGradientButton(
-                        textLabel: TTexts.sendResetLink,
+                        textLabel: TAuthText.sendResetLink,
                         onPressed: controller.resendTimer.isRunning.value
                             ? null
                             : controller.sendResetLink,
@@ -79,7 +80,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 ), // Send OTP btn
                 // Remember PW + Sign in
                 WAuthFooter(
-                  label: TTexts.rememberYourPassword,
+                  label: TAuthText.rememberYourPassword,
                   btnLabel: TTexts.signIn,
                   onTap: () {
                     controller.goToSignIn();

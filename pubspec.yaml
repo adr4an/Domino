@@ -68,6 +68,7 @@ flutter:
     - assets/images/
     - assets/images/products/
     - assets/images/auth-images/
+    - assets/images/history-images/
     - assets/images/splash/
     - assets/images/banners/
 

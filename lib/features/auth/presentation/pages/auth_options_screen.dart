@@ -6,7 +6,8 @@ import 'package:domino/features/auth/presentation/widgets/auth_options.dart/auth
 import 'package:domino/features/auth/presentation/widgets/sign_in/wlabel_divider.dart';
 import 'package:domino/features/auth/presentation/widgets/sign_up/wsignup_terms.dart';
 import 'package:domino/utils/constants/sizes.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/texts/auth_text.dart';
+import 'package:domino/utils/constants/texts/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
@@ -37,7 +38,7 @@ class AuthOptionsScreen extends StatelessWidget {
                 SizedBox(height: TSizes.spaceBtwSections),
 
                 // Divider
-                WLabeledDivider(label: TTexts.or),
+                WLabeledDivider(label: TAuthText.or),
                 SizedBox(height: TSizes.spaceBtwSections),
 
                 // 3 Social Buttons
@@ -46,10 +47,10 @@ class AuthOptionsScreen extends StatelessWidget {
 
                 // Terms And Policy
                 WTermsAndAgreement(
-                  prefixText: TTexts.agreementPrefix,
-                  termsText: TTexts.termsOfService,
-                  conjunctionText: TTexts.agreementAnd,
-                  privacyText: TTexts.agreementPrivacyPolicy,
+                  prefixText: TAuthText.agreementPrefix,
+                  termsText: TAuthText.termsOfService,
+                  conjunctionText: TAuthText.agreementAnd,
+                  privacyText: TAuthText.agreementPrivacyPolicy,
                   textAlign: TextAlign.center,
                 ),
               ],

@@ -1,7 +1,10 @@
+import 'package:domino/features/favourite/presentation/pages/favourite_screen.dart';
+import 'package:domino/features/history/presentation/pages/history_screen.dart';
 import 'package:domino/features/home/presentation/pages/home_screen.dart';
+import 'package:domino/features/profile/presentation/pages/profile_screen.dart';
 import 'package:domino/shared/widgets/images/wdisplay_icon.dart';
 import 'package:domino/utils/constants/colors.dart';
-import 'package:domino/utils/constants/image/icon_string.dart';
+import 'package:domino/utils/constants/images/icon_string.dart';
 import 'package:domino/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_floating_bottom_bar/flutter_floating_bottom_bar.dart';
@@ -76,8 +79,8 @@ class NavigationMenu extends StatelessWidget {
 class NavigationController extends GetxController {
   final screens = [
     HomeScreen(),
-    Container(color: Colors.red),
-    Container(color: Colors.orange),
-    Container(color: Colors.yellow),
+    HistoryScreen(),
+    FavouriteScreen(),
+    ProfileScreen(),
   ];
 }

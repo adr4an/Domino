@@ -14,7 +14,7 @@ class WAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.showBackArrow = true,
   });
 
-  final Widget? title;
+  final String? title;
   final bool showBackArrow;
   final Widget? leadingIcon;
   final List<Widget>? actions;
@@ -22,11 +22,15 @@ class WAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appBarTitleStyle = Theme.of(context).textTheme.titleLarge;
+
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: TSizes.md),
+      padding: const EdgeInsets.symmetric(horizontal: TSizes.sm),
       child: AppBar(
         automaticallyImplyLeading: false,
-        title: title,
+        centerTitle: true,
+        titleSpacing: 0,
+        title: title != null ? Text(title!, style: appBarTitleStyle) : null,
 
         leading: showBackArrow
             ? IconButton(

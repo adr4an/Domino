@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:domino/features/auth/presentation/pages/sign_in.dart';
-import 'package:domino/utils/constants/image/image_strings.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/images/image_strings.dart';
+import 'package:domino/utils/constants/texts/auth_text.dart';
 import 'package:domino/utils/helpers/popups/full_screen_loaders.dart';
 import 'package:domino/utils/helpers/popups/loaders.dart';
 import 'package:domino/utils/helpers/timer/count_down_timer.dart';
@@ -24,7 +24,7 @@ class VerifyEmailController extends GetxController {
     // Ensure the field is not empty
     if (enteredOtp.length < 6) {
       TLoaders.errorSnackBar(
-        title: TTexts.invalidCode,
+        title: TAuthText.invalidCode,
         message: 'Please enter all 6 digits.',
       );
       return;
@@ -38,8 +38,8 @@ class VerifyEmailController extends GetxController {
 
     if (enteredOtp == _referenceOtp) {
       TLoaders.successSnackBar(
-        title: TTexts.success,
-        message: TTexts.emailGotVerified,
+        title: TAuthText.success,
+        message: TAuthText.emailGotVerified,
       );
 
       _resetAttempts();
@@ -67,15 +67,15 @@ class VerifyEmailController extends GetxController {
 
     if (attemptsLeft.value <= 0) {
       TLoaders.errorSnackBar(
-        title: TTexts.tooManyAttemps,
-        message: TTexts.pleaseWait,
+        title: TAuthText.tooManyAttemps,
+        message: TAuthText.pleaseWait,
       );
       lockTimer.start(_lockoutSeconds);
     } else {
       TLoaders.errorSnackBar(
-        title: TTexts.invalidCode,
+        title: TAuthText.invalidCode,
         message:
-            '${TTexts.incorrectCode} ${attemptsLeft.value} ${TTexts.attemptsLeft}',
+            '${TAuthText.incorrectCode} ${attemptsLeft.value} ${TAuthText.attemptsLeft}',
       );
     }
   }

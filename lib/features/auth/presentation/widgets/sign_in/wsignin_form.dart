@@ -2,9 +2,10 @@ import 'package:domino/shared/widgets/components/buttons/gradient_btn.dart';
 import 'package:domino/features/auth/presentation/controllers/signin_controller.dart';
 import 'package:domino/features/auth/presentation/widgets/sign_in/wcheckbox_action.dart';
 import 'package:domino/shared/widgets/components/fields/wtext_field.dart';
-import 'package:domino/utils/constants/image/icon_string.dart';
+import 'package:domino/utils/constants/images/icon_string.dart';
 import 'package:domino/utils/constants/sizes.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/texts/auth_text.dart';
+import 'package:domino/utils/constants/texts/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
@@ -21,7 +22,7 @@ class WsigninForm extends StatelessWidget {
           // Email
           Obx(
             () => WtextField(
-              label: TTexts.email,
+              label: TAuthText.email,
               preIcon: TIconString.email,
               controller: controller.emailController,
               onChanged: controller.updateEmail,
@@ -34,7 +35,7 @@ class WsigninForm extends StatelessWidget {
           Obx(
             () => WtextField(
               controller: controller.passwordController,
-              label: TTexts.password,
+              label: TAuthText.password,
               preIcon: TIconString.pw,
               postIcon: controller.obscurePassword.value
                   ? TIconString.pwHide
@@ -49,8 +50,8 @@ class WsigninForm extends StatelessWidget {
             () => WCheckboxWithAction(
               value: controller.rememberMe.value,
               onChanged: controller.toggleRememberMe,
-              label: TTexts.rememberMe,
-              actionLabel: TTexts.forgetPassword,
+              label: TAuthText.rememberMe,
+              actionLabel: TAuthText.forgetPassword,
               onActionPressed: () => controller.goToForgetPassword(),
             ),
           ),

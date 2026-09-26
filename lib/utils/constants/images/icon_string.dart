@@ -38,14 +38,4 @@ class TIconString {
   static const String carbs = 'assets/icons/macro-icons/carbs.png';
   static const String fats = 'assets/icons/macro-icons/fats.png';
   static const String protein = 'assets/icons/macro-icons/chicken.png';
-
-  static const List<Map<String, String>> iconCateg = [
-    {'label': 'Best', 'image': best},
-    {'label': 'Pizza', 'image': pizza},
-    {'label': 'Dessert', 'image': dessert},
-    {'label': 'Coffee', 'image': coffee},
-    {'label': 'Coffee', 'image': coffee},
-    {'label': 'Coffee', 'image': coffee},
-    {'label': 'Coffee', 'image': coffee},
-  ];
 }

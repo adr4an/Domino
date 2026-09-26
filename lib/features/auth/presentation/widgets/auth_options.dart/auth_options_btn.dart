@@ -1,8 +1,8 @@
 import 'package:domino/features/auth/presentation/widgets/sign_in/wsocial_btn.dart';
 import 'package:domino/utils/constants/colors.dart';
-import 'package:domino/utils/constants/image/image_strings.dart';
+import 'package:domino/utils/constants/images/image_strings.dart';
 import 'package:domino/utils/constants/sizes.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/texts/auth_text.dart';
 import 'package:flutter/material.dart';
 
 class AuthOptionsSocialButtons extends StatelessWidget {
@@ -13,7 +13,7 @@ class AuthOptionsSocialButtons extends StatelessWidget {
     return Column(
       children: [
         WSocialButton(
-          label: TTexts.continueWithFacebook,
+          label: TAuthText.continueWithFacebook,
           imagePath: TImageString.facebookLogo,
           bgColor: TColors.dark,
           textColor: TColors.white,
@@ -23,14 +23,14 @@ class AuthOptionsSocialButtons extends StatelessWidget {
         SizedBox(height: TSizes.sm),
 
         WSocialButton(
-          label: TTexts.continueWithGoogle,
+          label: TAuthText.continueWithGoogle,
           imagePath: TImageString.googleLogo,
           onPressed: () {},
         ),
         SizedBox(height: TSizes.sm),
 
         WSocialButton(
-          label: TTexts.continueWithEmail,
+          label: TAuthText.continueWithEmail,
           imagePath: TImageString.emailLogo,
           onPressed: () {},
         ),

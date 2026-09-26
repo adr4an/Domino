@@ -1,5 +1,5 @@
 import 'package:domino/utils/constants/sizes.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/texts/auth_text.dart';
 import 'package:flutter/material.dart';
 
 class WVerificationHeader extends StatelessWidget {
@@ -15,7 +15,7 @@ class WVerificationHeader extends StatelessWidget {
     return Column(
       children: [
         Text(
-          TTexts.verifyEmailTitle,
+          TAuthText.verifyEmailTitle,
           style: theme.headlineSmall?.copyWith(
             letterSpacing: -.1,
             fontWeight: FontWeight.bold,
@@ -23,7 +23,7 @@ class WVerificationHeader extends StatelessWidget {
         ),
         SizedBox(height: TSizes.sm),
 
-        Text(TTexts.verifyEmailSubTitle, style: theme.bodyMedium),
+        Text(TAuthText.verifyEmailSubTitle, style: theme.bodyMedium),
         SizedBox(height: TSizes.xs),
 
         Text(

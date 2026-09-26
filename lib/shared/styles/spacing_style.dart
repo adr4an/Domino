@@ -13,4 +13,9 @@ class TSpacingStyle {
     horizontal: TSizes.defaultSpace,
     vertical: TSizes.sm,
   );
+
+  static const EdgeInsetsGeometry historyPadding = EdgeInsets.symmetric(
+    vertical: TSizes.sm,
+    horizontal: TSizes.xs,
+  );
 }

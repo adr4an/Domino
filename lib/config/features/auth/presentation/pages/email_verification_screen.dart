@@ -5,9 +5,9 @@ import 'package:domino/shared/widgets/images/wdisplay_image.dart';
 import 'package:domino/features/auth/presentation/controllers/verify_email.controller.dart';
 import 'package:domino/features/auth/presentation/widgets/email_verification/wresend_code_section.dart';
 import 'package:domino/features/auth/presentation/widgets/email_verification/wverif_header.dart';
-import 'package:domino/utils/constants/image/image_strings.dart';
+import 'package:domino/utils/constants/images/image_strings.dart';
 import 'package:domino/utils/constants/sizes.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/texts/auth_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
@@ -29,7 +29,7 @@ class EmailVerificationScreen extends StatelessWidget {
             child: Column(
               children: [
                 // Header (Verify Your Email, Enter the 6 digit, Email)
-                WVerificationHeader(email: TTexts.emailReference),
+                WVerificationHeader(email: TAuthText.emailReference),
                 SizedBox(height: TSizes.spaceBtwItems),
 
                 // Image
@@ -65,7 +65,7 @@ class EmailVerificationScreen extends StatelessWidget {
 
                       // Footer Verify Your Code
                       WGradientButton(
-                        textLabel: TTexts.verifyCodeButton,
+                        textLabel: TAuthText.verifyCodeButton,
                         onPressed:
                             verifyEmailController.lockTimer.isRunning.value
                             ? null

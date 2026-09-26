@@ -1,7 +1,7 @@
 import 'package:domino/shared/widgets/components/fields/wtext_field.dart';
 import 'package:domino/shared/widgets/images/wdisplay_icon.dart';
 import 'package:domino/utils/constants/colors.dart';
-import 'package:domino/utils/constants/image/icon_string.dart';
+import 'package:domino/utils/constants/images/icon_string.dart';
 import 'package:flutter/material.dart';
 
 class WSearchBar extends StatelessWidget {

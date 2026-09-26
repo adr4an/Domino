@@ -1,7 +1,7 @@
 import 'package:domino/shared/widgets/images/wdisplay_icon.dart';
-import 'package:domino/utils/constants/image/image_strings.dart';
+import 'package:domino/utils/constants/images/image_strings.dart';
 import 'package:domino/utils/constants/sizes.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/texts/onboarding_text.dart';
 import 'package:flutter/material.dart';
 
 class WBrandName extends StatelessWidget {
@@ -17,7 +17,7 @@ class WBrandName extends StatelessWidget {
         SizedBox(width: TSizes.sm),
 
         Text(
-          TTexts.appName,
+          TOnboardingText.appName,
           style: theme.headlineSmall?.copyWith(letterSpacing: -.8),
         ),
       ],

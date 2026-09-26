@@ -4,9 +4,10 @@ import 'package:domino/features/auth/presentation/controllers/signup_controller.
 import 'package:domino/features/auth/presentation/pages/email_verification_screen.dart';
 import 'package:domino/features/auth/presentation/widgets/sign_in/wcheckbox_action.dart';
 import 'package:domino/features/auth/presentation/widgets/sign_up/wsignup_terms.dart';
-import 'package:domino/utils/constants/image/icon_string.dart';
+import 'package:domino/utils/constants/images/icon_string.dart';
 import 'package:domino/utils/constants/sizes.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/texts/auth_text.dart';
+import 'package:domino/utils/constants/texts/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
@@ -23,15 +24,15 @@ class WSignupForm extends StatelessWidget {
       child: Column(
         children: [
           // Full Name
-          WtextField(label: TTexts.fullName, preIcon: TIconString.user),
+          WtextField(label: TAuthText.fullName, preIcon: TIconString.user),
           SizedBox(height: TSizes.sm),
 
           // Email
-          WtextField(label: TTexts.email, preIcon: TIconString.email),
+          WtextField(label: TAuthText.email, preIcon: TIconString.email),
           SizedBox(height: TSizes.sm),
 
           // Phone Number
-          WtextField(label: TTexts.phoneNo, preIcon: TIconString.phone),
+          WtextField(label: TAuthText.phoneNo, preIcon: TIconString.phone),
           SizedBox(height: TSizes.sm),
 
           // Row [Password, Confirm Password]
@@ -40,7 +41,7 @@ class WSignupForm extends StatelessWidget {
               Obx(
                 () => Expanded(
                   child: WtextField(
-                    label: TTexts.password,
+                    label: TAuthText.password,
                     postIcon: controller.obscurePassword.value
                         ? TIconString.pwShow
                         : TIconString.pwHide,
@@ -54,7 +55,7 @@ class WSignupForm extends StatelessWidget {
               Obx(
                 () => Expanded(
                   child: WtextField(
-                    label: TTexts.confirmPassword,
+                    label: TAuthText.confirmPassword,
                     postIcon: controller.obscureConfirmPassword.value
                         ? TIconString.pwShow
                         : TIconString.pwHide,
@@ -74,10 +75,10 @@ class WSignupForm extends StatelessWidget {
               value: controller.isAgreeToTerms.value,
               onChanged: controller.toggleTerms,
               richLabel: WTermsAndAgreement(
-                prefixText: TTexts.agreementPrefix,
-                termsText: TTexts.termsOfService,
-                conjunctionText: TTexts.agreementAnd,
-                privacyText: TTexts.agreementPrivacyPolicy,
+                prefixText: TAuthText.agreementPrefix,
+                termsText: TAuthText.termsOfService,
+                conjunctionText: TAuthText.agreementAnd,
+                privacyText: TAuthText.agreementPrivacyPolicy,
               ),
               onActionPressed: () {},
             ),

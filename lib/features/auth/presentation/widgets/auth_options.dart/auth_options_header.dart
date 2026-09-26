@@ -1,9 +1,10 @@
 import 'package:domino/shared/styles/shadows.dart';
 import 'package:domino/shared/widgets/components/default/wauth_header.dart';
 import 'package:domino/shared/widgets/images/wdisplay_image.dart';
-import 'package:domino/utils/constants/image/image_strings.dart';
+import 'package:domino/utils/constants/images/image_strings.dart';
 import 'package:domino/utils/constants/sizes.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/texts/auth_text.dart';
+import 'package:domino/utils/constants/texts/onboarding_text.dart';
 import 'package:flutter/material.dart';
 
 class AuthOptionsHeader extends StatelessWidget {
@@ -24,8 +25,8 @@ class AuthOptionsHeader extends StatelessWidget {
         SizedBox(height: TSizes.spaceBtwSections),
 
         WAuthHeader(
-          headTitle: TTexts.welcomeToCravely,
-          headSubTititle: TTexts.orderYourFood,
+          headTitle: TOnboardingText.welcomeToCravely,
+          headSubTititle: TAuthText.orderYourFood,
         ),
       ],
     );

@@ -2,9 +2,10 @@ import 'package:domino/features/auth/presentation/pages/sign_in.dart';
 import 'package:domino/features/auth/presentation/widgets/sign_in/wauth_footer.dart';
 import 'package:domino/features/auth/presentation/widgets/sign_in/wsocial_btn.dart';
 import 'package:domino/utils/constants/colors.dart';
-import 'package:domino/utils/constants/image/image_strings.dart';
+import 'package:domino/utils/constants/images/image_strings.dart';
 import 'package:domino/utils/constants/sizes.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/texts/auth_text.dart';
+import 'package:domino/utils/constants/texts/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
@@ -21,7 +22,7 @@ class WSignUpFooter extends StatelessWidget {
           children: [
             Expanded(
               child: WSocialButton(
-                label: TTexts.google,
+                label: TAuthText.google,
                 imagePath: TImageString.googleLogo,
                 onPressed: () {},
               ),
@@ -30,7 +31,7 @@ class WSignUpFooter extends StatelessWidget {
 
             Expanded(
               child: WSocialButton(
-                label: TTexts.facebook,
+                label: TAuthText.facebook,
                 imagePath: TImageString.facebookLogo,
                 bgColor: TColors.black,
                 textColor: TColors.white,
@@ -43,7 +44,7 @@ class WSignUpFooter extends StatelessWidget {
         SizedBox(height: TSizes.sm),
 
         WAuthFooter(
-          label: TTexts.alreadyHaveAnAccount,
+          label: TAuthText.alreadyHaveAnAccount,
           btnLabel: TTexts.signIn,
           onTap: () => Get.off(() => SignInScreen()),
         ),

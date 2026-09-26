@@ -7,9 +7,9 @@ import 'package:domino/features/auth/presentation/controllers/verify_email.contr
 import 'package:domino/features/auth/presentation/widgets/email_verification/wresend_code_section.dart';
 import 'package:domino/features/auth/presentation/widgets/email_verification/wverif_header.dart';
 import 'package:domino/utils/constants/colors.dart';
-import 'package:domino/utils/constants/image/icon_string.dart';
+import 'package:domino/utils/constants/images/icon_string.dart';
 import 'package:domino/utils/constants/sizes.dart';
-import 'package:domino/utils/constants/text_strings.dart';
+import 'package:domino/utils/constants/texts/auth_text.dart';
 import 'package:domino/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -41,7 +41,7 @@ class EmailVerificationScreen extends StatelessWidget {
                 SizedBox(height: TSizes.spaceBtwSections),
 
                 // Header (Verify Your Email, Enter the 6 digit, Email)
-                WVerificationHeader(email: TTexts.emailReference),
+                WVerificationHeader(email: TAuthText.emailReference),
                 SizedBox(height: TSizes.spaceBtwSections),
 
                 // Pin point 6 digit code box
@@ -59,7 +59,7 @@ class EmailVerificationScreen extends StatelessWidget {
                       // Resend section — swaps between countdown and locked message
                       if (verifyEmailController.lockTimer.isRunning.value)
                         Text(
-                          '${TTexts.tooManyAttemps} ${verifyEmailController.lockTimer.secondsLeft.value}s',
+                          '${TAuthText.tooManyAttemps} ${verifyEmailController.lockTimer.secondsLeft.value}s',
                           style: Theme.of(context).textTheme.bodyMedium
                               ?.copyWith(color: TColors.error),
                         )
@@ -78,7 +78,7 @@ class EmailVerificationScreen extends StatelessWidget {
 
                 // Footer Verify Your Code
                 WGradientButton(
-                  textLabel: TTexts.verifyCodeButton,
+                  textLabel: TAuthText.verifyCodeButton,
                   onPressed: verifyEmailController.lockTimer.isRunning.value
                       ? null
                       : () => verifyEmailController.verifyOtp(
