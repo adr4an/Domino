@@ -47,14 +47,19 @@ class TFormatter {
   static String formatPhoneNumber(String phoneNumber) {
     final digits = phoneNumber.replaceAll(RegExp(r'\D'), '');
 
+    String? local; // the 10 digits after +63
+
     if (digits.length == 11 && digits.startsWith('0')) {
-      // Local PH format: 09171234567 -> +63 917 123 4567
-      return '+63 ${digits.substring(1, 4)} ${digits.substring(4, 7)} ${digits.substring(7)}';
-    } else if (digits.length == 10) {
-      // US-style: 9171234567 -> (917) 123-4567
-      return '(${digits.substring(0, 3)}) ${digits.substring(3, 6)}-${digits.substring(6)}';
+      local = digits.substring(1); // 09171234567
+    } else if (digits.length == 12 && digits.startsWith('63')) {
+      local = digits.substring(2); // 639171234567
+    } else if (digits.length == 10 && digits.startsWith('9')) {
+      local = digits; // 9171234567
     }
-    return phoneNumber; // fallback: return as-is if it doesn't match known patterns
+
+    if (local == null) return phoneNumber; // unknown pattern, return as-is
+
+    return '+63 ${local.substring(0, 3)} ${local.substring(3, 6)} ${local.substring(6)}';
   }
 
   /// Format order ID (e.g. 8492 -> #ORD-8492) — nice for receipts/order tracking

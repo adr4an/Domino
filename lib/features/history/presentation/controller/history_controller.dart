@@ -1,50 +1,22 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:domino/features/history/domain/order_status.dart';
+import 'package:domino/features/history/domain/repositories/history_repository.dart';
 
 class HistoryController extends GetxController {
+  HistoryController({required this.repository});
+
   static HistoryController get instance => Get.find();
 
+  final HistoryRepository repository;
   final selectedIndex = 0.obs;
-  final pageController = PageController();
 
   // collect all the values of enums
   final statuses = OrderStatus.values;
 
-  @override
-  void onReady() {
-    super.onReady();
-    syncPageToSelectedIndex();
-  }
-
-  Future<void> changeTab(int index) async {
-    // Pressed the same tab, stop immediately.
-    if (selectedIndex.value == index) return;
-
-    selectedIndex.value = index;
-
-    if (pageController.hasClients) {
-      pageController.jumpToPage(index);
-    }
+  List<Map<String, Object>> ordersForStatus(OrderStatus status) {
+    return repository.ordersForStatus(status);
   }
 
   // Updates the currently selected tab index.
-  void onPageChanged(int index) {
-    selectedIndex.value = index;
-  }
-
-  void syncPageToSelectedIndex() {
-    if (!pageController.hasClients) return;
-
-    final currentPage = pageController.page?.round();
-    if (currentPage != selectedIndex.value) {
-      pageController.jumpToPage(selectedIndex.value);
-    }
-  }
-
-  @override
-  void onClose() {
-    pageController.dispose();
-    super.onClose();
-  }
+  void changeTab(int index) => selectedIndex.value = index;
 }

@@ -14,4 +14,8 @@ class TTexts {
   static const String tContinue = "Continue";
   static const String signIn = "Sign In";
   static const String signUp = "Sign Up";
+
+  // History
+  static const favourites = 'Favourites';
+  static const String saveItems = 'Saved Items';
 }

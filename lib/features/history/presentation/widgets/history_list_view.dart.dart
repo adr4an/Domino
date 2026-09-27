@@ -2,10 +2,11 @@ import 'package:domino/shared/styles/spacing_style.dart';
 import 'package:flutter/material.dart';
 import 'package:domino/features/history/domain/order_status.dart';
 import 'package:domino/features/history/presentation/widgets/history_card.dart';
-import 'package:domino/features/history/presentation/widgets/history_empty_state.dart';
-import 'package:domino/utils/constants/reference.dart';
+import 'package:domino/features/history/presentation/controller/history_controller.dart';
+import 'package:domino/shared/widgets/components/empty_state.dart';
 import 'package:domino/utils/constants/images/image_strings.dart';
 import 'package:domino/utils/constants/sizes.dart';
+import 'package:domino/utils/constants/texts/order_history_text.dart';
 
 class WHistoryListView extends StatelessWidget {
   const WHistoryListView({super.key, required this.status});
@@ -14,15 +15,13 @@ class WHistoryListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final orders = status == OrderStatus.completed
-        ? TReference.pendingOrders
-        : <Map<String, Object>>[];
+    final orders = HistoryController.instance.ordersForStatus(status);
 
     // Display no pending order
     if (orders.isEmpty) {
-      return WHistoryEmptyState(
+      return WEmptyState(
         image: TImageString.emptyOrder,
-        statusLabel: status.label,
+        title: OrderHistoryTexts.noOrdersForStatus(status.label),
       );
     }
 
@@ -32,9 +31,14 @@ class WHistoryListView extends StatelessWidget {
       separatorBuilder: (_, _) => const SizedBox(height: TSizes.spaceBtwItems),
 
       itemBuilder: (_, index) {
-        final items = orders[index]['items'] as List<Map<String, Object>>;
+        final order = orders[index];
+        final items = order['items'] as List<Map<String, Object>>;
 
-        return WHistoryCard(items: items, status: status);
+        return WHistoryCard(
+          items: items,
+          status: status,
+          purchaseDate: order['purchaseDate'] as String,
+        );
       },
     );
   }

@@ -6,7 +6,7 @@ class OnboardingController extends GetxController {
 
   // final _box = GetStorage();
 
-  void goToHome() {
+  void goToAuthOptions() {
     Get.offAll(() => const AuthOptionsScreen());
   }
 }

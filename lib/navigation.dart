@@ -1,6 +1,10 @@
-import 'package:domino/features/favourite/presentation/pages/favourite_screen.dart';
+import 'dart:ui' show ImageFilter;
+
+import 'package:domino/features/favorite/presentation/pages/favorite_screen.dart';
 import 'package:domino/features/history/presentation/pages/history_screen.dart';
+import 'package:domino/features/home/presentation/controller/home_controller.dart';
 import 'package:domino/features/home/presentation/pages/home_screen.dart';
+import 'package:domino/features/profile/presentation/controller/profile_controller.dart';
 import 'package:domino/features/profile/presentation/pages/profile_screen.dart';
 import 'package:domino/shared/widgets/images/wdisplay_icon.dart';
 import 'package:domino/utils/constants/colors.dart';
@@ -28,9 +32,8 @@ class NavigationMenu extends StatelessWidget {
           ),
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.transparent,
               borderRadius: BorderRadius.circular(24),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.55)),
+              border: Border.all(color: Colors.white.withValues(alpha: 0.45)),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withValues(alpha: 0.1),
@@ -39,35 +42,47 @@ class NavigationMenu extends StatelessWidget {
                 ),
               ],
             ),
-            child: TabBar(
-              indicatorColor: TColors.primary,
-              dividerColor: Colors.transparent,
-              tabs: [
-                Tab(
-                  icon: WDisplayIcon(
-                    iconPath: TIconString.home,
-                    size: TSizes.iconSm,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(24),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+                child: Material(
+                  color: Colors.white.withValues(alpha: 0.18),
+                  borderRadius: BorderRadius.circular(24),
+                  clipBehavior: Clip.antiAlias,
+                  child: TabBar(
+                    indicatorColor: TColors.primary,
+                    dividerColor: Colors.transparent,
+                    splashBorderRadius: BorderRadius.circular(24),
+                    tabs: [
+                      Tab(
+                        icon: WDisplayIcon(
+                          iconPath: TIconString.home,
+                          size: TSizes.iconSm,
+                        ),
+                      ),
+                      Tab(
+                        icon: WDisplayIcon(
+                          iconPath: TIconString.history,
+                          size: TSizes.iconSm,
+                        ),
+                      ),
+                      Tab(
+                        icon: WDisplayIcon(
+                          iconPath: TIconString.cart,
+                          size: TSizes.iconSm,
+                        ),
+                      ),
+                      Tab(
+                        icon: WDisplayIcon(
+                          iconPath: TIconString.profile,
+                          size: TSizes.iconSm,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                Tab(
-                  icon: WDisplayIcon(
-                    iconPath: TIconString.history,
-                    size: TSizes.iconSm,
-                  ),
-                ),
-                Tab(
-                  icon: WDisplayIcon(
-                    iconPath: TIconString.heart,
-                    size: TSizes.iconSm,
-                  ),
-                ),
-                Tab(
-                  icon: WDisplayIcon(
-                    iconPath: TIconString.profile,
-                    size: TSizes.iconSm,
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ),
@@ -77,10 +92,15 @@ class NavigationMenu extends StatelessWidget {
 }
 
 class NavigationController extends GetxController {
+  NavigationController() {
+    Get.put(HomeController());
+    Get.put(ProfileController());
+  }
+
   final screens = [
     HomeScreen(),
     HistoryScreen(),
-    FavouriteScreen(),
+    FavoriteScreen(),
     ProfileScreen(),
   ];
 }

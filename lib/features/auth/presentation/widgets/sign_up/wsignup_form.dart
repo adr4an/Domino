@@ -1,4 +1,5 @@
 import 'package:domino/shared/widgets/components/buttons/gradient_btn.dart';
+import 'package:domino/shared/widgets/components/fields/wphone_prefix.dart';
 import 'package:domino/shared/widgets/components/fields/wtext_field.dart';
 import 'package:domino/features/auth/presentation/controllers/signup_controller.dart';
 import 'package:domino/features/auth/presentation/pages/email_verification_screen.dart';
@@ -8,6 +9,7 @@ import 'package:domino/utils/constants/images/icon_string.dart';
 import 'package:domino/utils/constants/sizes.dart';
 import 'package:domino/utils/constants/texts/auth_text.dart';
 import 'package:domino/utils/constants/texts/text_strings.dart';
+import 'package:domino/utils/formatters/phone_input_formatters.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
@@ -32,7 +34,12 @@ class WSignupForm extends StatelessWidget {
           SizedBox(height: TSizes.sm),
 
           // Phone Number
-          WtextField(label: TAuthText.phoneNo, preIcon: TIconString.phone),
+          WtextField(
+            label: TAuthText.phoneNo,
+            preIcon: const WPhonePrefix(),
+            keyboardType: TextInputType.phone,
+            inputFormatters: TPhoneInputFormatters.local,
+          ),
           SizedBox(height: TSizes.sm),
 
           // Row [Password, Confirm Password]

@@ -22,27 +22,27 @@ class TTextFormFieldTheme {
         errorStyle: TTextTheme.lightTextTheme.bodyMedium,
 
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(5),
           borderSide: const BorderSide(width: 1.5, color: Colors.grey),
         ),
 
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(5),
           borderSide: const BorderSide(width: 1.5, color: Colors.grey),
         ),
 
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(5),
           borderSide: const BorderSide(width: 2.5, color: Colors.blue),
         ),
 
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(5),
           borderSide: const BorderSide(width: 1.5, color: Colors.red),
         ),
 
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(5),
           borderSide: const BorderSide(width: 2.5, color: Colors.orange),
         ),
       ); // InputDecorationTheme

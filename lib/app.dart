@@ -1,5 +1,5 @@
 import 'package:domino/config/theme/theme.dart';
-import 'package:domino/features/auth/presentation/pages/onboarding.dart';
+import 'package:domino/features/auth/presentation/pages/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 

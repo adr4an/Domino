@@ -1,3 +1,4 @@
+import 'package:domino/features/auth/presentation/pages/forget_password/create_new_pass_screen.dart';
 import 'package:domino/features/auth/presentation/pages/sign_in.dart';
 import 'package:domino/utils/constants/images/image_strings.dart';
 import 'package:domino/utils/constants/texts/auth_text.dart';
@@ -12,12 +13,50 @@ class ForgetPwController extends GetxController {
 
   // ============ Email Field ============
   final emailController = TextEditingController();
+  final password = TextEditingController();
+  final confirmPassword = TextEditingController();
+
+  final RxBool obscurePassword = true.obs;
+  final RxBool obscureConfirmPassword = true.obs;
   final RxBool hasEmail = false.obs;
   final RxBool isEmailValid = false.obs;
 
   void updateEmail(String value) {
     hasEmail.value = value.trim().isNotEmpty;
     isEmailValid.value = GetUtils.isEmail(value.trim());
+  }
+
+  void togglePasswordVisibility() {
+    obscurePassword.value = !obscurePassword.value;
+  }
+
+  void toggleConfirmPasswordVisibility() {
+    obscureConfirmPassword.value = !obscureConfirmPassword.value;
+  }
+
+  void resetPassword() {
+    //
+    if (password.text.trim().isEmpty || confirmPassword.text.trim().isEmpty) {
+      TLoaders.errorSnackBar(
+        title: TAuthText.invalidPassword,
+        message: TAuthText.enterBothPasswords,
+      );
+      return;
+    }
+
+    if (password.text != confirmPassword.text) {
+      TLoaders.errorSnackBar(
+        title: TAuthText.invalidPassword,
+        message: TAuthText.passwordsDoNotMatch,
+      );
+      return;
+    }
+
+    TLoaders.successSnackBar(
+      title: TAuthText.success,
+      message: TAuthText.passwordResetSuccess,
+    );
+    goToSignIn();
   }
 
   // ============ Resend Cooldown ============
@@ -63,6 +102,10 @@ class ForgetPwController extends GetxController {
     Get.offAll(() => const SignInScreen());
   }
 
+  void goToCreateNewPass() {
+    Get.to(() => CreateNewPassScreen());
+  }
+
   // ============ Lifecycle ============
   @override
   void onInit() {
@@ -75,6 +118,8 @@ class ForgetPwController extends GetxController {
   void onClose() {
     resendTimer.dispose();
     emailController.dispose();
+    password.dispose();
+    confirmPassword.dispose();
     super.onClose();
   }
 }

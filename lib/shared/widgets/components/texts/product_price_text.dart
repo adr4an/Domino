@@ -29,7 +29,7 @@ class WProductPriceText extends StatelessWidget {
             )
           : theme.labelLarge!.copyWith(
               decoration: lineThrough ? TextDecoration.lineThrough : null,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.bold,
             ),
     );
   }

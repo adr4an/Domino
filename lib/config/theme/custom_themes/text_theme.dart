@@ -15,14 +15,14 @@ class TTextTheme {
     headlineMedium: const TextStyle(
       fontSize: 28,
       fontWeight: FontWeight.w600,
-      color: Colors.black,
+      color: TColors.black,
       letterSpacing: -0.1,
     ),
 
     headlineSmall: const TextStyle(
       fontSize: 24,
       fontWeight: FontWeight.w600,
-      color: Colors.black,
+      color: TColors.black,
       letterSpacing: -0.1,
       height: 1.3,
     ),
@@ -30,7 +30,7 @@ class TTextTheme {
     titleLarge: const TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w600,
-      color: Colors.black,
+      color: TColors.black,
       letterSpacing: -0.1,
     ),
 
@@ -79,14 +79,14 @@ class TTextTheme {
       letterSpacing: -0.1,
     ),
 
-    labelMedium: TextStyle(
+    labelMedium: const TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.w500,
       color: TColors.black,
       letterSpacing: -0.1,
     ),
 
-    labelSmall: TextStyle(
+    labelSmall: const TextStyle(
       fontSize: 13,
       fontWeight: FontWeight.w500,
       color: TColors.black,

@@ -37,15 +37,19 @@ class TSizes {
   static const double productImageRadius = 16.0;
 
   // Default spacing between sections
-  static const double defaultSpace = 24.0;
   static const double spaceBtwItems = 16.0;
   static const double spaceBtwSections = 32.0;
+
+  // Device size
+  static const double screenHorizontalPadding = 16.0;
+  static const double screenVerticalPadding = 24;
 
   // Border radius
   static const double borderRadiusSm = 4.0;
   static const double borderRadiusMd = 8.0;
   static const double borderRadiusLg = 12.0;
   static const double borderRadiusXl = 16.0;
+  static const double borderCircular = 99.0;
 
   // Divider height
   static const double dividerHeight = 1.0;

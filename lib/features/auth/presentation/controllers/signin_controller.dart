@@ -1,4 +1,4 @@
-import 'package:domino/features/auth/presentation/pages/forget_pw_screen.dart';
+import 'package:domino/features/auth/presentation/pages/forget_password/forget_pw_screen.dart';
 import 'package:domino/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

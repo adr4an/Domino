@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 class TSpacingStyle {
   static const EdgeInsetsGeometry paddingWithoutAppBar = EdgeInsets.only(
     top: TSizes.appBarHeight,
-    left: TSizes.defaultSpace,
-    bottom: TSizes.defaultSpace,
-    right: TSizes.defaultSpace,
+    left: TSizes.screenHorizontalPadding,
+    bottom: TSizes.screenHorizontalPadding,
+    right: TSizes.screenHorizontalPadding,
   );
 
   static const EdgeInsetsGeometry paddingWithAppBar = EdgeInsets.symmetric(
-    horizontal: TSizes.defaultSpace,
+    horizontal: TSizes.screenHorizontalPadding,
     vertical: TSizes.sm,
   );
 

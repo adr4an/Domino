@@ -18,15 +18,20 @@ class AuthOptionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Padding(
             padding: TSpacingStyle.paddingWithoutAppBar,
             child: Column(
               children: [
+                SizedBox(height: TSizes.spaceBtwItems),
+
                 // Logo, Header
-                AuthOptionsHeader(),
-                SizedBox(height: TSizes.spaceBtwSections),
+                AuthOptionsHeader(
+                  title: TAuthText.welcome,
+                  subTitle: TAuthText.orderYourFood,
+                ),
+                SizedBox(height: TSizes.spaceBtwItems),
 
                 // Continue Button
                 WGradientButton(

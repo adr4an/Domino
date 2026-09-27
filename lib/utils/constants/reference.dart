@@ -52,35 +52,6 @@ class TReference {
     },
   ];
 
-  static const List<Map<String, Object>> pendingOrders = [
-    {
-      'items': [
-        {
-          'imageUrl': TImageString.pizzaProdcut2,
-          'name': 'Pepperoni Pizza',
-          'price': '279.00',
-          'quantity': 1,
-        },
-      ],
-    },
-    {
-      'items': [
-        {
-          'imageUrl': TImageString.pizzaProdcut1,
-          'name': 'Chicken Mushroom Pizza',
-          'price': '299.00',
-          'quantity': 2,
-        },
-        {
-          'imageUrl': TImageString.pizzaProduct3,
-          'name': 'Margherita Pizza',
-          'price': '249.00',
-          'quantity': 1,
-        },
-      ],
-    },
-  ];
-
   static const List<String> promoBanners = [
     TImageString.promoBanner3,
     TImageString.promoBanner1,

@@ -2,7 +2,8 @@ class TImageString {
   TImageString._();
 
   // Global Png
-  static const String emptyOrder = 'assets/images/history-images/empty.png';
+  static const String emptyOrder =
+      'assets/images/history-images/empty-cart.png';
   static const String form = 'assets/images/history-images/form.png';
 
   // Animations

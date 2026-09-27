@@ -1,80 +1,76 @@
-import 'package:domino/features/history/domain/order_status.dart';
 import 'package:domino/shared/widgets/components/custom_shapes/container/rounded_container.dart';
 import 'package:domino/shared/widgets/images/wdisplay_image.dart';
 import 'package:domino/utils/constants/colors.dart';
 import 'package:domino/utils/constants/images/image_strings.dart';
 import 'package:domino/utils/constants/sizes.dart';
+import 'package:domino/utils/constants/texts/order_history_text.dart';
+import 'package:domino/utils/helpers/pricing_calculator.dart';
 import 'package:flutter/material.dart';
 
 class WHistoryItem extends StatelessWidget {
-  const WHistoryItem({super.key, required this.item, required this.status});
+  const WHistoryItem({super.key, required this.item});
 
   final Map<String, Object> item;
-  final OrderStatus status;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
+    final unitPrice = item['price'].toString();
+    final quantity = item['quantity'] as int;
+    final lineTotal = TPricingCalculator.calculateItemTotal(
+      sizePrice: double.parse(unitPrice),
+      toppingPrices: const [],
+      quantity: quantity,
+    );
 
-    return SizedBox(
-      height: 56,
-      child: Row(
-        children: [
-          WRoundedContainer(
-            width: 55,
-            height: 55,
-            radius: TSizes.md,
-            backgroundColor: TColors.grey300,
-            child: WDisplayImage(
-              imagePath:
-                  item['imageUrl'] as String? ?? TImageString.pizzaProdcut1,
-            ),
+    return Row(
+      children: [
+        // Product Image
+        WRoundedContainer(
+          width: 52,
+          height: 52,
+          radius: TSizes.cardRadiusMd,
+          backgroundColor: TColors.grey200,
+          child: WDisplayImage(
+            imagePath:
+                item['imageUrl'] as String? ?? TImageString.pizzaProdcut1,
           ),
-          const SizedBox(width: TSizes.spaceBtwItems),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  item['name'] as String,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: theme.titleSmall,
-                ),
-                Text(
-                  '₱${item['price']}',
-                  style: theme.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(width: TSizes.sm),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        ),
+        const SizedBox(width: TSizes.md - 4),
+
+        // Name + Unit Price x Quantity
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Quantity: ${item['quantity']}', style: theme.labelMedium),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 4,
+              Text(
+                item['name'] as String,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: theme.bodyMedium?.copyWith(
+                  color: TColors.black,
+                  fontWeight: FontWeight.w600,
                 ),
-                decoration: BoxDecoration(
-                  color: status.color.withValues(alpha: 0.15),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Text(
-                  status.label,
-                  style: theme.labelSmall!.copyWith(color: status.color),
-                ),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                OrderHistoryTexts.unitPriceLabel(unitPrice, quantity),
+                style: theme.labelSmall?.copyWith(color: TColors.darkGrey),
               ),
             ],
           ),
-        ],
-      ),
+        ),
+        const SizedBox(width: TSizes.sm),
+
+        // Line Total
+        Text(
+          '${OrderHistoryTexts.currencySymbol}${lineTotal.toStringAsFixed(2)}',
+          style: theme.titleSmall?.copyWith(
+            color: TColors.black,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ],
     );
   }
 }

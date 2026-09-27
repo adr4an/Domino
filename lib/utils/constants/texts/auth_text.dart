@@ -25,6 +25,16 @@ class TAuthText {
   static const String forgetPasswordTitle = "Forgot Password";
   static const String forgetPasswordDescription =
       "Don't worry! Please enter email associated. we'll send you reset instructions";
+  static const String setNewPasswordTitle = 'Set a new password';
+  static const String setNewPasswordDescription =
+      'Your new password must be different from previously used passwords';
+  static const String resetPassword = 'Reset password';
+  static const String backToLogIn = 'Back to log in';
+  static const String invalidPassword = 'Invalid Password';
+  static const String enterBothPasswords =
+      'Please enter and confirm your new password.';
+  static const String passwordsDoNotMatch = 'The passwords do not match.';
+  static const String passwordResetSuccess = 'Your password has been reset.';
   static const String sendOtp = "Send OTP";
   static const String rememberYourPassword = "You remember you password?";
   static const String sendResetLink = "Send Link";
@@ -38,6 +48,7 @@ class TAuthText {
   static const String pleaseTryAgainLater = 'Please try again later.';
 
   // Auth Options Texts
+  static const String phonePrefix = "+63";
   static const String authOptionsHeader =
       "Cravely makes every meal easy to find, order, and enjoy wherever you are craving it.";
   static const String orderYourFood = 'Log in to order your pizza.';
@@ -82,7 +93,7 @@ class TAuthText {
   static const String username = "Username";
   static const String phoneNo = "Phone Number";
   static const String rememberMe = "Remember Me";
-  static const String forgetPassword = "Forget Password?";
+  static const String forgetPassword = "Forgot Password?";
 
   static const String createAccount = "Create Account";
   static const String orSignInWith = "or sign in with";

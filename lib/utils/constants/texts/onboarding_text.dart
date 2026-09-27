@@ -5,8 +5,8 @@ class TOnboardingText {
   static const String appName = "Cravely";
   static const String onBoardingHeader = 'Great pizza,\nDelivered fast';
   static const String onBoardingSubTitle =
-      "Order fresh, hot pizza from your\n"
-      "favorite local spots, made with quality ingredients.\n";
+      "Order fresh, hot pizza from your favorite local spots, "
+      "made with quality ingredients.";
   static const String onBoardingBtnText = 'Get Started';
 
   static const String welcomeToCravely = "Welcome to Cravely";

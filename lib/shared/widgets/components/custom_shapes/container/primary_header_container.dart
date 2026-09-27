@@ -15,29 +15,25 @@ class WPrimaryHeaderContainer extends StatelessWidget {
       widget: Container(
         decoration: const BoxDecoration(gradient: TGradients.home),
         padding: const EdgeInsets.all(0),
-        child: SizedBox(
-          width: double.infinity,
-          height: 350,
-          child: Stack(
-            children: [
-              Positioned(
-                top: -150,
-                right: -250,
-                child: WCircularContainer(
-                  backgroundColor: TColors.textWhite.withValues(alpha: 0.1),
-                ),
+        child: Stack(
+          children: [
+            Positioned(
+              top: -150,
+              right: -250,
+              child: WCircularContainer(
+                backgroundColor: TColors.textWhite.withValues(alpha: 0.1),
               ),
-              Positioned(
-                top: 100,
-                right: -300,
-                child: WCircularContainer(
-                  backgroundColor: TColors.textWhite.withValues(alpha: 0.1),
-                ),
+            ),
+            Positioned(
+              top: 100,
+              right: -300,
+              child: WCircularContainer(
+                backgroundColor: TColors.textWhite.withValues(alpha: 0.1),
               ),
+            ),
 
-              child,
-            ],
-          ), // Stack
+            child,
+          ],
         ), // SizedBox
       ),
     );

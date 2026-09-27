@@ -1,3 +1,5 @@
+import 'package:domino/features/notification/presentation/bindings/notification_binding.dart';
+import 'package:domino/features/notification/presentation/pages/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,6 +20,10 @@ class HomeController extends GetxController {
 
   void goToStore() {
     // Get.to(() => StoreScreen());
+  }
+
+  void goToNotfication() {
+    Get.to(() => NotificationScreen(), binding: NotificationBinding());
   }
 
   void goToProductDetails() {

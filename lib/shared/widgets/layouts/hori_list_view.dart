@@ -23,7 +23,7 @@ class WHoriListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         separatorBuilder: (_, _) => SizedBox(width: itemSpacing),
         padding: const EdgeInsets.only(
-          left: TSizes.lg,
+          left: TSizes.md,
           right: TSizes.lg,
           bottom: TSizes.xs,
         ),

@@ -7,6 +7,7 @@ class WCounterIcon extends StatelessWidget {
     super.key,
     required this.icon,
     required this.label,
+    this.onTap,
     this.iconColor = TColors.white,
     this.digitColor = TColors.lightGrey,
     this.badgeColor = TColors.black,
@@ -16,6 +17,7 @@ class WCounterIcon extends StatelessWidget {
 
   final String icon;
   final String label;
+  final VoidCallback? onTap;
   final Color? digitColor;
   final Color iconColor;
   final Color badgeColor;
@@ -29,7 +31,7 @@ class WCounterIcon extends StatelessWidget {
     return Stack(
       children: [
         IconButton(
-          onPressed: () {},
+          onPressed: onTap,
           icon: WDisplayIcon(iconPath: icon, color: iconColor),
         ),
 

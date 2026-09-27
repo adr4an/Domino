@@ -16,14 +16,18 @@ dependencies:
   flutter_launcher_icons: ^0.14.4
   flutter_floating_bottom_bar: ^2.1.0
 
-  # UI + Icons
+  # Img + Icons
   cupertino_icons: ^1.0.8
   iconsax: ^0.0.8
   flutter_svg: ^2.3.0
   lottie: ^3.1.2
   pinput: ^6.0.2
+
+  # UI Components
   carousel_slider: ^5.1.2
   flutter_rating_bar: ^4.0.1
+  custom_pop_up_menu: ^1.2.4
+  smooth_sheets: ^1.1.2
 
   # State Management
   get: ^4.7.3
@@ -36,12 +40,15 @@ dependencies:
   intl: ^0.20.3
   connectivity_plus: ^7.3.1
 
-
   # Firebase Dependencies
   firebase_auth: ^6.2.0
   firebase_core: ^4.5.0
   cloud_firestore: ^6.1.3
 
+  # Chat Service
+  flutter_chat_ui: ^2.0.0
+  flutter_chat_core: ^2.0.0
+  flyer_chat_text_message: ^2.6.1
 
 
 dev_dependencies:
@@ -64,6 +71,8 @@ flutter:
     - assets/icons/macro-icons/
     - assets/icons/nav-icons/
     - assets/icons/social-icons/
+    - assets/icons/profile-icons/
+    - assets/icons/chat-icons/
 
     - assets/images/
     - assets/images/products/
@@ -72,7 +81,7 @@ flutter:
     - assets/images/splash/
     - assets/images/banners/
 
-
+#
     - assets/splash/
     - assets/animations/
 

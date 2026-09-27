@@ -1,4 +1,5 @@
 import 'package:domino/utils/constants/colors.dart';
+import 'package:domino/utils/constants/texts/order_history_text.dart';
 import 'package:flutter/material.dart';
 
 enum OrderStatus { pending, completed, cancelled }
@@ -8,11 +9,11 @@ extension OrderStatusX on OrderStatus {
   String get label {
     switch (this) {
       case OrderStatus.pending:
-        return 'Pending';
+        return OrderHistoryTexts.pending;
       case OrderStatus.completed:
-        return 'Completed';
+        return OrderHistoryTexts.completed;
       case OrderStatus.cancelled:
-        return 'Cancelled';
+        return OrderHistoryTexts.cancelled;
     }
   }
 
@@ -21,7 +22,7 @@ extension OrderStatusX on OrderStatus {
       case OrderStatus.pending:
         return TColors.warning;
       case OrderStatus.completed:
-        return TColors.info;
+        return TColors.primary;
       case OrderStatus.cancelled:
         return TColors.error;
     }
