@@ -18,13 +18,29 @@ class TIconString {
   static const String menu = 'assets/icons/home-icons/menu.png';
   static const String clock = 'assets/icons/home-icons/clock.png';
   static const String clock2 = 'assets/icons/home-icons/clock2.png';
+  static const String rightArrow = 'assets/icons/home-icons/rightArrow.png';
+  static const String rightArrow2 = 'assets/icons/home-icons/right-arrow.png';
+
+  // Profile Icons
+  static const String logout = 'assets/icons/profile-icons/logout.png';
+  static const String userProfile = 'assets/icons/profile-icons/profile.png';
+  static const String editPencil = 'assets/icons/profile-icons/pencil.png';
+  static const String helpFAQ = 'assets/icons/profile-icons/help.png';
+  static const String lightTheme = 'assets/icons/profile-icons/contrast.png';
+  static const String customerService = 'assets/icons/profile-icons/mobile.png';
+  static const String connected = 'assets/icons/profile-icons/chat.png';
+  static const String link = 'assets/icons/profile-icons/link.png';
+  static const String profileLock = 'assets/icons/profile-icons/correct.png';
+  static const String profileCall =
+      'assets/icons/profile-icons/profileCall.png';
 
   // Nav Icons
   static const String home = 'assets/icons/nav-icons/home.png';
   static const String shop = 'assets/icons/nav-icons/store.png';
-  static const String heart = 'assets/icons/nav-icons/heart.png';
   static const String profile = 'assets/icons/nav-icons/profile.png';
   static const String history = 'assets/icons/nav-icons/sheet.png';
+  static const String chat = 'assets/icons/nav-icons/messenger.png';
+  static const String heartFill = 'assets/icons/nav-icons/heart-fill.png';
 
   // Categ Icons
   static const String best = 'assets/icons/categ-icons/best.png';

@@ -1,32 +1,41 @@
 import 'package:domino/shared/styles/shadows.dart';
 import 'package:domino/shared/widgets/components/custom_shapes/container/rounded_container.dart';
-import 'package:domino/shared/widgets/components/texts/custom_badge.dart';
 import 'package:domino/shared/widgets/components/texts/product_price_text.dart';
 import 'package:domino/shared/widgets/components/texts/product_title_text.dart';
+import 'package:domino/shared/widgets/effects/glass_decoration.dart';
+import 'package:domino/shared/widgets/icons/circular_icon.dart';
 import 'package:domino/shared/widgets/images/rounded_image.dart';
 import 'package:domino/utils/constants/colors.dart';
+import 'package:domino/utils/constants/gradients.dart';
 import 'package:domino/utils/constants/images/icon_string.dart';
 import 'package:domino/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 class WProductCardVertical extends StatelessWidget {
   const WProductCardVertical({
     super.key,
     required this.imageUrl,
-    required this.calories,
     required this.productName,
-    required this.deliveryTime,
-    required this.description,
     required this.price,
+    this.calories,
+    this.deliveryTime,
+    this.description,
+    this.topLeftBadge,
+    this.topRightBadge,
+    this.rightBadgeTopPosition = 12,
+    this.rightBadgeRightPosition = 0,
   });
 
   final String imageUrl;
-  final String calories;
-  final String productName;
-  final String deliveryTime;
-  final String description;
   final String price;
+  final String productName;
+  final String? calories;
+  final String? deliveryTime;
+  final String? description;
+  final Widget? topLeftBadge;
+  final Widget? topRightBadge;
+  final double? rightBadgeTopPosition;
+  final double? rightBadgeRightPosition;
 
   @override
   Widget build(BuildContext context) {
@@ -50,36 +59,24 @@ class WProductCardVertical extends StatelessWidget {
               children: [
                 // Product Image
                 Positioned.fill(
-                  top: 12,
+                  top: 5,
                   child: WRoundedImage(
                     imageUrl: imageUrl,
                     applyImageRadius: true,
                   ),
                 ),
 
-                // Calories
-                Positioned(
-                  top: 12,
-                  left: 0,
-                  child: WCustomBadge(
-                    roundLeft: false,
-                    iconPath: TIconString.fire,
-                    label: calories,
-                    iconSize: 16,
-                  ),
-                ),
+                // Top LEft Badge
+                if (topLeftBadge != null)
+                  Positioned(top: 12, left: 0, child: topLeftBadge!),
 
-                // Delivery Time Badge
-                Positioned(
-                  top: 12,
-                  right: 0,
-                  child: WCustomBadge(
-                    roundRight: false,
-                    iconPath: TIconString.clock,
-                    label: deliveryTime,
-                    iconSize: 15,
+                // Right LEft Badge
+                if (topRightBadge != null)
+                  Positioned(
+                    top: rightBadgeTopPosition,
+                    right: rightBadgeRightPosition,
+                    child: topRightBadge!,
                   ),
-                ),
               ],
             ), // Stack
           ), // TRoundedContainer
@@ -88,47 +85,54 @@ class WProductCardVertical extends StatelessWidget {
           // Details
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(left: TSizes.sm),
+              padding: const EdgeInsets.only(
+                left: TSizes.sm,
+                right: TSizes.xs,
+                bottom: TSizes.xs,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TProductTitleText(title: productName, smallSize: true),
-                  const SizedBox(height: TSizes.spaceBtwItems / 2),
 
-                  Text(
-                    description,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                    style: theme.labelSmall,
-                  ),
+                  if (description != null)
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: TSizes.spaceBtwItems / 2),
+                        Text(
+                          description!,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                          style: theme.labelSmall,
+                        ),
+                      ],
+                    ),
                   const Spacer(),
 
                   // Price + Detail Button
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      /// Price
-                      WProductPriceText(price: price),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 4, bottom: 2),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        /// Price
+                        WProductPriceText(price: price),
 
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: TColors.dark,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(TSizes.cardRadiusMd),
-                            bottomRight: Radius.circular(
-                              TSizes.productImageRadius,
-                            ),
-                          ), // BorderRadius.only
-                        ), // BoxDecoration
-                        child: const SizedBox(
-                          width: TSizes.iconLg * 1.2,
-                          height: TSizes.iconLg * 1.2,
-                          child: Center(
-                            child: Icon(Iconsax.add, color: TColors.white),
+                        WCircularIcon(
+                          icon: TIconString.rightArrow2,
+                          padding: const EdgeInsets.all(TSizes.sm),
+                          decoration: TGlassDecoration.circle(
+                            gradient: TGradients.primary,
                           ),
-                        ), // SizedBox
-                      ), // Container
-                    ],
+                          color: TColors.white,
+                          width: 34,
+                          height: 34,
+                          size: 25,
+                          onPressed: () {},
+                        ), // Container
+                      ],
+                    ),
                   ),
                 ],
               ), // Column

@@ -14,7 +14,7 @@ class WHistoryListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final orders = status == OrderStatus.completed
+    final orders = status == OrderStatus.pending
         ? TReference.pendingOrders
         : <Map<String, Object>>[];
 

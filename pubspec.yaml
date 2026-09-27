@@ -64,6 +64,7 @@ flutter:
     - assets/icons/macro-icons/
     - assets/icons/nav-icons/
     - assets/icons/social-icons/
+    - assets/icons/profile-icons/
 
     - assets/images/
     - assets/images/products/

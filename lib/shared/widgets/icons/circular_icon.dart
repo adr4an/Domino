@@ -1,4 +1,6 @@
-import 'package:domino/utils/constants/colors.dart';
+import 'package:domino/shared/widgets/effects/glass_blur.dart';
+import 'package:domino/shared/widgets/effects/glass_decoration.dart';
+import 'package:domino/shared/widgets/images/wdisplay_icon.dart';
 import 'package:domino/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -6,30 +8,43 @@ class WCircularIcon extends StatelessWidget {
   const WCircularIcon({
     super.key,
     required this.icon,
-    this.width,
-    this.height,
+    required this.onPressed,
+    this.width = 30,
+    this.height = 30,
     this.size = TSizes.iconSm,
-    this.onPressed,
+    this.padding = EdgeInsets.zero,
     this.color,
-    this.backgroundColor,
+    this.decoration,
   });
 
   final double? width, height, size;
-  final Widget icon;
+  final EdgeInsetsGeometry padding;
+  final String icon;
   final Color? color;
-  final Color? backgroundColor;
-  final VoidCallback? onPressed;
+  final BoxDecoration? decoration;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        color: backgroundColor ?? TColors.white.withValues(alpha: 0.9),
-        borderRadius: BorderRadius.circular(50),
+    return TGlassBlur(
+      borderRadius: BorderRadius.circular(50),
+      child: Material(
+        color: Colors.transparent,
+        shape: const CircleBorder(),
+        child: InkWell(
+          onTap: onPressed,
+          customBorder: const CircleBorder(),
+          child: Container(
+            width: width,
+            height: height,
+            padding: padding,
+            decoration: decoration ?? TGlassDecoration.circle(),
+            child: Center(
+              child: WDisplayIcon(iconPath: icon, size: size, color: color),
+            ),
+          ),
+        ),
       ),
-      child: IconButton(onPressed: onPressed, icon: icon),
     );
   }
 }

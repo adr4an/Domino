@@ -57,7 +57,7 @@ class NavigationMenu extends StatelessWidget {
                 ),
                 Tab(
                   icon: WDisplayIcon(
-                    iconPath: TIconString.heart,
+                    iconPath: TIconString.chat,
                     size: TSizes.iconSm,
                   ),
                 ),
